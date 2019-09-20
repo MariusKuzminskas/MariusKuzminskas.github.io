@@ -23,6 +23,11 @@
 #nav {
   padding: 30px;
 }
+#nav a {
+  font-size: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
 #nav a {
   font-weight: bold;

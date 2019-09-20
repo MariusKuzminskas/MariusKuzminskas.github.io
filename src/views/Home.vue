@@ -29,9 +29,11 @@
         and is looped through.
       </p>
       <li>Commit source to a public repository (GitHub) and send the link</li>
-      <a href="mariuskuzminskas.github.io">mariuskuzminskas.github.io</a>
+      <a
+        href="https://github.com/MariusKuzminskas/MariusKuzminskas.github.io"
+      >https://github.com/MariusKuzminskas/MariusKuzminskas.github.io</a>
       <li>Would be nice to have a live demo online</li>
-      <a href="mariuskuzminskas.github.io">mariuskuzminskas.github.io</a>
+      <a href="http://buhu.websitesmk.com/API_hostinger/">http://buhu.websitesmk.com/API_hostinger/</a>
     </ul>
     <H5 class="mt-5 mb-3">best regards Marius Kuzminskas</H5>
   </div>
