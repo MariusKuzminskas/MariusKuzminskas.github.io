@@ -23,19 +23,31 @@
   <script src="skaiciai.js" defer></script>
   <script src="app.js" defer></script>
   <title>Skaiciai lietuviskai</title>
+  <style>
+    .container {
+      min-height: 100vh;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Sveiki atvyke</h1>
-    <h2>Marius Kuzminskas</h2>
+  <div class="container d-flex flex-column justify-content-between">
+    <div class="top">
+      <h1>Sveiki atvyke</h1>
+      <h2>Paverskite skaiciu i zodzius lietuviskai</h2>
 
-    <div class="form-group"></div>
-    <label for="">Iveskite skaiciu </label>
-    <input id="in" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-    <small id="helpId" class="form-text text-muted">(0 - 999999)</small>
-    <h3 id="out"></h3>
-  </div>
+      <div class="form-group"></div>
+      <label for="">Iveskite skaiciu </label>
+      <input id="in" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+      <small id="helpId" class="form-text text-muted">(0 - 999999)</small>
+      <h3 id="out"></h3>
+      <hr>
+      <p id="iv"></p>
+
+    </div>
+    <footer class="my-2">
+      Autorius: <strong>Marius Kuzminskas</strong>
+    </footer>
   </div>
 </body>
 

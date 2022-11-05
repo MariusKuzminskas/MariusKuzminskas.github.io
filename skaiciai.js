@@ -1,18 +1,18 @@
 const vienasIkiTrylika = [
-  "nulis",
-  "vienas",
-  "du",
-  "trys",
-  "keturi",
-  "penki",
-  "šeši",
-  "septyni",
-  "aštuoni",
-  "devyni",
-  "dešimt",
-  "vienuolika",
-  "dvylika",
-  "trylika",
+  'nulis',
+  'vienas',
+  'du',
+  'trys',
+  'keturi',
+  'penki',
+  'šeši',
+  'septyni',
+  'aštuoni',
+  'devyni',
+  'dešimt',
+  'vienuolika',
+  'dvylika',
+  'trylika',
 ];
 
 /**
@@ -28,7 +28,7 @@ function getIkiTrylika(num) {
 // antras skaicius plius olika
 // keturi + olika
 function getketuriolikaDevyniolika(num) {
-  let pirmaDalis = getIkiTrylika(getSkaiciusPagalVieta(num, 2));
+  const pirmaDalis = getIkiTrylika(getSkaiciusPagalVieta(num, 2));
   return `${pirmaDalis}olika`;
 }
 
@@ -37,9 +37,9 @@ function getketuriolikaDevyniolika(num) {
 // keturi + asdesimt
 // penki + asdesimt
 function getApvaliosDesimtys(num) {
-  let pirmasSk = getIkiTrylika(getSkaiciusPagalVieta(num, 1));
-  if (pirmasSk === "du") return "dvidešimt";
-  if (pirmasSk === "trys") return "trisdešimt";
+  const pirmasSk = getIkiTrylika(getSkaiciusPagalVieta(num, 1));
+  if (pirmasSk === 'du') return 'dvidešimt';
+  if (pirmasSk === 'trys') return 'trisdešimt';
   return `${pirmasSk}adešimt`;
 }
 
@@ -49,9 +49,9 @@ function getApvaliosDesimtys(num) {
 // keturiasdesimt vienas
 // 21 - 99
 function getDvimTo99(num) {
-  let desimtis = getApvaliosDesimtys(getSkaiciusPagalVieta(num, 1));
-  let antrasSk = getIkiTrylika(getSkaiciusPagalVieta(num, 2));
-  if (antrasSk === "nulis") return `${desimtis}`;
+  const desimtis = getApvaliosDesimtys(getSkaiciusPagalVieta(num, 1));
+  const antrasSk = getIkiTrylika(getSkaiciusPagalVieta(num, 2));
+  if (antrasSk === 'nulis') return `${desimtis}`;
   return `${desimtis} ${antrasSk}`;
 }
 
@@ -67,13 +67,13 @@ function getDvimTo99(num) {
 // pirmas skaicius yra nuo 1 iki 9 + simtai
 // prideam 'ir' ir pabaiga gaunasi dvizenklis kuri mes jau aprasem
 function getTrizenliks(num) {
-  let kiekSimtuSk = getSkaiciusPagalVieta(num, 1);
-  let kiekSimtuZodziais = getIkiTrylika(kiekSimtuSk);
-  let likutisPoSimtu = String(num).slice(1);
+  const kiekSimtuSk = getSkaiciusPagalVieta(num, 1);
+  const kiekSimtuZodziais = getIkiTrylika(kiekSimtuSk);
+  const likutisPoSimtu = String(num).slice(1);
   // debugger;
-  likutisPoSimtuZodziais =
-    likutisPoSimtu === "00" ? "" : " " + skaiciusToLt(Math.abs(likutisPoSimtu));
-  let simtasSimtai = kiekSimtuSk === 1 ? "šimtas" : "šimtai";
+  const likutisPoSimtuZodziais =
+    likutisPoSimtu === '00' ? '' : ` ${skaiciusToLt(Math.abs(likutisPoSimtu))}`;
+  const simtasSimtai = kiekSimtuSk === 1 ? 'šimtas' : 'šimtai';
   return `${kiekSimtuZodziais} ${simtasSimtai}${likutisPoSimtuZodziais}`;
 }
 
@@ -85,14 +85,14 @@ function getTrizenliks(num) {
 // 100,000
 function getUpToMillion(num) {
   // debugger;
-  let numString = String(num);
-  let kiekTukstSk = numString.slice(0, numString.length - 3);
-  let kiekTukstZodziais = skaiciusToLt(kiekTukstSk);
-  let likutisPoTukst = numString.slice(numString.length - 3);
+  const numString = String(num);
+  const kiekTukstSk = numString.slice(0, numString.length - 3);
+  const kiekTukstZodziais = skaiciusToLt(kiekTukstSk);
+  const likutisPoTukst = numString.slice(numString.length - 3);
 
-  likutisPoTuksZodziais =
-    likutisPoTukst === "000" ? "" : " " + skaiciusToLt(Math.abs(likutisPoTukst));
-  let tuksSuTeisingaGalune = getTuksTeisingaGalune(kiekTukstSk);
+  const likutisPoTuksZodziais =
+    likutisPoTukst === '000' ? '' : ` ${skaiciusToLt(Math.abs(likutisPoTukst))}`;
+  const tuksSuTeisingaGalune = getTuksTeisingaGalune(kiekTukstSk);
   return `${kiekTukstZodziais} ${tuksSuTeisingaGalune}${likutisPoTuksZodziais}`;
 }
 // getUpToMillion(11223);
@@ -102,10 +102,10 @@ function getSkaiciusPagalVieta(num, vieta) {
   return +String(num).charAt(vieta - 1);
 }
 function howManyDigits(num) {
-  return num.toString().lenght;
+  return num.toString().length;
 }
 // 1k is
-//2k - 9k iai
+// 2k - 9k iai
 // 10k - 19 ciu
 // 20k 30k 40k iu
 // 21k is
@@ -114,14 +114,14 @@ function howManyDigits(num) {
 function getTuksTeisingaGalune(tuksSk) {
   // debugger;
   tuksSk = String(Math.abs(tuksSk));
-  let keliazenklisSk = tuksSk.length;
-  if (tuksSk == 1) return "tūkstantis";
-  if (tuksSk < 10 && tuksSk != 0) return "tūkstančiai";
-  if (tuksSk < 21) return "tūkstančių";
+  const keliazenklisSk = howManyDigits(tuksSk);
+  if (tuksSk == 1) return 'tūkstantis';
+  if (tuksSk < 10 && tuksSk != 0) return 'tūkstančiai';
+  if (tuksSk < 21) return 'tūkstančių';
   if (keliazenklisSk === 2) {
-    if (tuksSk.slice(-1) == "1") return "tūkstantis";
-    if (tuksSk.slice(-1) == "0") return "tūkstančių";
-    return "tūkstančiai";
+    if (tuksSk.slice(-1) == '1') return 'tūkstantis';
+    if (tuksSk.slice(-1) == '0') return 'tūkstančių';
+    return 'tūkstančiai';
   }
   if (keliazenklisSk === 3) {
     // return "<aprasyti kaip yra su trizenklem tukstanciu galunem>";
@@ -130,15 +130,38 @@ function getTuksTeisingaGalune(tuksSk) {
 }
 
 function skaiciusToLt(num) {
-  if (num < 0) throw new Error("galimi tik teigiami skaiciai");
+  if (num < 0) throw new Error('galimi tik teigiami skaiciai');
   if (num < 14) return getIkiTrylika(num);
   if (num < 20) return getketuriolikaDevyniolika(num);
   if (num < 100) return getDvimTo99(num);
   if (num < 1000) return getTrizenliks(num);
   if (num < 1000000) return getUpToMillion(num);
-  return console.warn("neaprasytas atvejis");
+  return console.warn('neaprasytas atvejis');
 }
-console.log(`
-skaiciusToLt(345) -> ${skaiciusToLt(2725)}
-`);
-2725;
+
+const removeWhiteSpace = (string) => {
+  return string.replace(/\s+/g, '');
+};
+const leaveOnlyNumberCharacters = (string) => {
+  return string.match(/[0-9\.]?/g).join('');
+};
+
+function skaiciusToLtSuCentais(num) {
+  if (isNaN(parseFloat(num))) {
+    // console.log('NAN');
+    num = removeWhiteSpace(num);
+    num = leaveOnlyNumberCharacters(num);
+    // return;
+  }
+  // console.log('parseFloat(num) ===', parseFloat(num));
+  num = parseFloat(num).toFixed(2);
+  const sk = num.toString().split('.')[0];
+  const ct = num.toString().split('.')[1];
+  // console.log({ sk, ct });
+  const ct00 = ct === '00' ? '0' : ct;
+  return `${skaiciusToLt(sk)} eur, ${ct00}ct.`;
+}
+
+// console.log(`
+// skaiciusToLt(345) -> ${skaiciusToLtSuCentais('$ 2,725.34')}
+// `);
