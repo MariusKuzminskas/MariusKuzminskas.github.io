@@ -147,11 +147,11 @@ const leaveOnlyNumberCharacters = (string) => {
 };
 
 function skaiciusToLtSuCentais(num) {
+  num = removeWhiteSpace(num);
+  num = leaveOnlyNumberCharacters(num);
   if (isNaN(parseFloat(num))) {
-    // console.log('NAN');
-    num = removeWhiteSpace(num);
-    num = leaveOnlyNumberCharacters(num);
-    // return;
+    console.log('NAN');
+    return 'Neskaicius';
   }
   // console.log('parseFloat(num) ===', parseFloat(num));
   num = parseFloat(num).toFixed(2);

@@ -12,6 +12,7 @@ const output = el.output.textContent;
 
 el.input.addEventListener('input', function () {
   let entered = this.value;
+  if (!entered.length) return;
 
   // if (isNaN(+entered)) {
   //   el.output.textContent = 'neskaicius';
@@ -21,8 +22,9 @@ el.input.addEventListener('input', function () {
   el.output.textContent = zodziai;
   el.ivesta.textContent = 'Įvesta į laukelį: ' + this.value;
   this.value = leaveOnlyNumberCharacters(removeWhiteSpace(entered));
-  // if (zodziai.toString().startsWith('Undefinded')) {
-  //   el.output.textContent = 'neskaicius';
-  // }
+  console.log("zodziai.toString().startsWith('Undefinded') ===", zodziai.toString());
+  if (zodziai.toString().includes('undefinded')) {
+    el.output.textContent = 'neskaicius';
+  }
   // }
 });
